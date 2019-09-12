@@ -22,9 +22,10 @@ class QuestionComponent extends React.Component{
 
 render(){
   return(
-    <div className="Enter-question-box">
+    <div className="Enter-question-box border rounded">
         <div className="Question-title">{this.props.questionTitle}</div>
-        <div className="Question-author">{this.props.questionAuthor}</div>
+        <div className="Question-author">Asked by: {this.props.questionAuthor}</div>
+        <div className="Question-author">Date: {new Date(this.props.questionDateTime).toString()}</div>
     </div>
     );
   }

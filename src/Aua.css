@@ -12,4 +12,16 @@
 .Enter-question-box{
     max-width: 70%;
     margin: 1em;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    padding: .5em;
+}
+
+.Question-title{
+}
+.Question-author{
+    color: grey;
+    font-size: .75em;
 }

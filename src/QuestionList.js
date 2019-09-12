@@ -13,7 +13,7 @@ class QuestionList extends React.Component{
 
         this.state = {
             questions: Object.values(JsonQuestions)
-          }
+        }
 
         // this.setState({
         //     questions: JsonQuestions.map(question => {title: question.title})
@@ -22,15 +22,30 @@ class QuestionList extends React.Component{
 
 
       }
-    componentDidMount(){
-        console.log(JsonQuestions);
-        console.log(this.state.questions);
-    }
+    componentDidMount(){   
+        let fetchData = () => {
+            Promise.resolve(this.state.questions).then(questions => {
+            this.setState({questions})
+          })
+        }
+        
+        fetchData()
+        this.update = setInterval(fetchData, 2000)
+      }
+      
+      componentWillUnmount() {
+        clearInterval(this.update)
+      }
 
     render() {
     return (
         <React.Fragment>
-        {this.state.questions[0].map(question => <QuestionComponent questionTitle={question.title} questionAuthor={question.author}></QuestionComponent>)}
+        {this.state.questions[0].map(question => <QuestionComponent 
+        questionTitle={question.title} 
+        questionAuthor={question.author}
+        questionDateTime={question.datetime}
+        >
+        </QuestionComponent>)}
         </React.Fragment>
     );
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery'; 
 import logo from './logo.svg';
 import './App.css';
 import './Aua.css';
