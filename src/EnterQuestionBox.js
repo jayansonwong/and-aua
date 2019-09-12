@@ -35,8 +35,14 @@ class EnterQuestionBox extends React.Component{
             JsonQuestions.questions.push(jsonQuestion);
             $(".question-input").val("");
             $(".name-input").val("");
+        } else {
+            $(".question-alert").css('display', 'block');
+            console.log("enfu")
         }
         
+      }
+      hideAlert(){
+        $(".question-alert").css('display', 'none');
       }
 
 
@@ -53,6 +59,13 @@ render(){
         <div className="input-group-append">
             <button type="button" className="btn btn-primary" onClick={this.submitQuestion}>✔</button>
         </div>
+        </div>
+
+        <div class="question-alert alert alert-danger" style={{display:"none"}} role="alert">
+        <button type="button" class="close" onClick={this.hideAlert} aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+            <h4 class="alert-heading">Please enter a question</h4>
         </div>
     </div>
     );
