@@ -1,0 +1,15 @@
+.And-banner{
+    height: 8em ;
+    background-color: #ff323b;
+}
+
+.And-logo{
+    float: left;
+    max-width: 20em;
+    min-height:8em;
+}
+
+.Enter-question-box{
+    max-width: 70%;
+    margin: 1em;
+}
