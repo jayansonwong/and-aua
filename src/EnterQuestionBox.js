@@ -25,10 +25,17 @@ class EnterQuestionBox extends React.Component{
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var dT= date+' '+time;
-        let userName = $(".question-input").val();
-        let questionTitle= $(".name-input").val();
+        let userName = $(".name-input").val();
+        let questionTitle= $(".question-input").val();
+        if ($(".name-input").val()===""){
+            userName = "Anon";
+        }
         var jsonQuestion = {title:questionTitle, author:userName, datetime: dT};
-        JsonQuestions.questions.push(jsonQuestion);
+        if ($(".question-input").val()!==""){
+            JsonQuestions.questions.push(jsonQuestion);
+            $(".question-input").val("");
+            $(".name-input").val("");
+        }
         
       }
 
@@ -46,7 +53,7 @@ render(){
         <div className="input-group-append">
             <button type="button" className="btn btn-primary" onClick={this.submitQuestion}>✔</button>
         </div>
-</div>
+        </div>
     </div>
     );
   }
